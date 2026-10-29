@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: transparent !important;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.clock-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.clock-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.clock-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+.electron-drag {
+  -webkit-app-region: drag;
+}
+.electron-no-drag {
+  -webkit-app-region: no-drag;
+}
