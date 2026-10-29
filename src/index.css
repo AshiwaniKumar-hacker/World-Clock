@@ -2,14 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root {
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   background: transparent !important;
-  overflow: hidden;
+  overflow: hidden; /* Sirf body par rakho */
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+  overflow-y: auto; /* App ke andar scroll aayega */
 }
 
 .clock-scroll::-webkit-scrollbar {
@@ -28,4 +33,19 @@ html, body, #root {
 }
 .electron-no-drag {
   -webkit-app-region: no-drag;
+}
+
+/* Dropdown text color ko force karo */
+select, option {
+  color: #ffffff !important; /* Text white ho jaye */
+  background-color: #1a1a1a !important; /* Dark background */
+}
+
+/* Agar aap custom dropdown bana rahe ho toh uski max-height do */
+.dropdown-list {
+  max-height: 250px;
+  overflow-y: auto;
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
