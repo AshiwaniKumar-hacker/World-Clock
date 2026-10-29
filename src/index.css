@@ -6,8 +6,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  /* background: transparent !important; 👈 ISKO HATA DIYA HAI */
-  background-color: #0c0c0f; /* App ka main dark background */
+  background-color: #0c0c0f; /* Transparent hatakar dark color diya */
   overflow: hidden; 
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,30 +36,21 @@ html, body {
 }
 
 /* =========================================
-   DROPDOWN / SELECT FIX
+   CRITICAL FIX FOR NATIVE SELECT DROPDOWNS
    ========================================= */
-
-/* Dropdown box (jab band ho) */
 select {
-  color: #fef3c7 !important; /* Amber-50 text */
-  background-color: #0d1324 !important; /* Dark background */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fcd34d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
 }
 
-/* Dropdown list ke items (jab khula ho) */
+/* Dropdown options ko dark theme do */
 select option {
-  color: #ffffff !important;
-  background-color: #1a1a1a !important;
+  background-color: #0d1324 !important;
+  color: #fef3c7 !important;
   padding: 10px;
-}
-
-/* Custom dropdown list (agar future mein use karo) */
-.dropdown-list {
-  max-height: 250px;
-  overflow-y: auto;
-  background-color: #1a1a1a;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ffffff;
 }

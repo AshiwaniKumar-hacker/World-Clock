@@ -115,12 +115,12 @@ export default function AddTimezone({ onAdd, canAddMore, currentCount, maxClocks
               value={selectedCountry}
               onChange={handleCountryChange}
               className="
-                w-full mb-3 bg-black/50 border border-amber-500/20
-                rounded-lg px-3 py-2.5
-                text-amber-50 text-sm
-                focus:outline-none focus:ring-2 focus:ring-amber-400/40
-                appearance-none cursor-pointer
-              "
+  w-full mb-3 bg-black/50 border border-amber-500/20
+  rounded-lg px-3 py-2.5
+  text-amber-50 text-sm  // 👈 Isko text-white karo
+  focus:outline-none focus:ring-2 focus:ring-amber-400/40
+  appearance-none cursor-pointer // 👈 Isko hata do
+"
             >
               <option value="" className="bg-[#0d1324]">Select country…</option>
               {countries.map((c) => (
