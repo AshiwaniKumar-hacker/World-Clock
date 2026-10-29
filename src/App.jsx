@@ -28,9 +28,9 @@ function App() {
   const handleClose = () => window.electronAPI?.close();
 
   return (
-    <div className="h-full w-full flex flex-col bg-transparent">
+    <div className="h-full w-full flex flex-col bg-[#0c0c0f]"> {/* Background dark kar diya taaki text dikhe */}
       {/* Title Bar */}
-      <div className="electron-drag flex items-center justify-between px-5 py-3 bg-[#0c0c0f] border-b border-white/5 select-none">
+      <div className="electron-drag flex items-center justify-between px-5 py-3 bg-[#0c0c0f] border-b border-white/5 select-none z-50 relative">
         <div className="flex items-center gap-2.5">
           <div className="w-2.5 h-2.5 rounded-full bg-white/80" />
           <span className="text-white/90 text-sm font-medium tracking-wide">World Clock</span>
@@ -50,28 +50,33 @@ function App() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 overflow-hidden bg-[#0c0c0f]">
+      {/* overflow-hidden hata diya aur relative z-10 lagaya */}
+      <div className="flex-1 bg-[#0c0c0f] relative z-10">
         <div className="h-full flex flex-col p-4 gap-3">
-          <AddTimezone
-            onAdd={addClock}
-            canAddMore={canAddMore}
-            currentCount={clocks.length}
-            maxClocks={maxClocks}
-          />
+          
+          {/* AddTimezone ko z-20 diya taaki baaki cheezon ke upar dikhe */}
+          <div className="relative z-20">
+            <AddTimezone
+              onAdd={addClock}
+              canAddMore={canAddMore}
+              currentCount={clocks.length}
+              maxClocks={maxClocks}
+            />
+          </div>
 
           <AlarmManager clocks={clocks} onClearAlarm={clearAlarm} />
 
-          <div className="flex-1 overflow-y-auto clock-scroll">
+          <div className="flex-1 overflow-y-auto clock-scroll relative z-10">
             <AnimatePresence mode="popLayout">
               {clocks.length === 0 ? (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="h-full flex flex-col items-center justify-center text-center"
+                  className="h-full flex flex-col items-center justify-center text-center pt-10"
                 >
                   <div className="text-5xl mb-4 opacity-30">🌍</div>
-                  <p className="text-white/50 text-sm font-medium">No clocks added</p>
-                  <p className="text-white/25 text-xs mt-1">Select a city to begin</p>
+                  <p className="text-white/60 text-sm font-medium">No clocks added</p>
+                  <p className="text-white/40 text-xs mt-1">Select a city to begin</p>
                 </motion.div>
               ) : (
                 <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 pb-2">

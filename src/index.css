@@ -6,15 +6,16 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: transparent !important;
-  overflow: hidden; /* Sirf body par rakho */
+  /* background: transparent !important; 👈 ISKO HATA DIYA HAI */
+  background-color: #0c0c0f; /* App ka main dark background */
+  overflow: hidden; 
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 #root {
   height: 100%;
-  overflow-y: auto; /* App ke andar scroll aayega */
+  overflow-y: auto; 
 }
 
 .clock-scroll::-webkit-scrollbar {
@@ -35,13 +36,27 @@ html, body {
   -webkit-app-region: no-drag;
 }
 
-/* Dropdown text color ko force karo */
-select, option {
-  color: #ffffff !important; /* Text white ho jaye */
-  background-color: #1a1a1a !important; /* Dark background */
+/* =========================================
+   DROPDOWN / SELECT FIX
+   ========================================= */
+
+/* Dropdown box (jab band ho) */
+select {
+  color: #fef3c7 !important; /* Amber-50 text */
+  background-color: #0d1324 !important; /* Dark background */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-/* Agar aap custom dropdown bana rahe ho toh uski max-height do */
+/* Dropdown list ke items (jab khula ho) */
+select option {
+  color: #ffffff !important;
+  background-color: #1a1a1a !important;
+  padding: 10px;
+}
+
+/* Custom dropdown list (agar future mein use karo) */
 .dropdown-list {
   max-height: 250px;
   overflow-y: auto;
